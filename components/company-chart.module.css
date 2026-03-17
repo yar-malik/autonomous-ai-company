@@ -1,0 +1,151 @@
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 1.2rem;
+  background: rgba(255, 253, 249, 0.92);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header p,
+.header h3,
+.header span {
+  margin: 0;
+}
+
+.header p {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.header h3 {
+  margin-top: 0.35rem;
+  font-size: 1.2rem;
+}
+
+.header span {
+  max-width: 18rem;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.chartFrame {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.lineSvg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.thresholdLine {
+  stroke: rgba(176, 52, 54, 0.55);
+  stroke-width: 2;
+  stroke-dasharray: 8 7;
+}
+
+.thresholdLabel {
+  fill: #a13737;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.areaPath {
+  fill: url(#lineFill);
+}
+
+.linePath {
+  fill: none;
+  stroke: #0f766e;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.point {
+  fill: #0f766e;
+}
+
+.pointValue {
+  fill: #171311;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.axisLabel {
+  fill: #6d635c;
+  font-size: 11px;
+}
+
+.barChart {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.barRow {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.barMeta span {
+  color: var(--muted);
+}
+
+.barMeta strong {
+  font-size: 0.95rem;
+}
+
+.barTrack {
+  overflow: hidden;
+  height: 13px;
+  border-radius: 999px;
+  background: #eee2d5;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0f766e, #6ab6aa);
+}
+
+.barChange {
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header span {
+    max-width: none;
+    text-align: left;
+  }
+}

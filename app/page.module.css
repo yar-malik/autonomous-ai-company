@@ -1,0 +1,366 @@
+.page {
+  padding: 24px;
+}
+
+.shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+.hero,
+.directory,
+.submission,
+.detailCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: var(--panel);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 32px;
+  min-height: 72vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
+
+.heroCopy {
+  display: grid;
+  align-content: space-between;
+  gap: 24px;
+}
+
+.eyebrow,
+.detailEyebrow {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.title {
+  margin: 0;
+  max-width: 9ch;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.8rem, 8vw, 7.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.intro,
+.detailSummary,
+.sourceNote {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.intro {
+  max-width: 39rem;
+  font-size: 1.05rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  border-radius: 999px;
+  padding: 0.95rem 1.35rem;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.primaryAction {
+  background: var(--text);
+  color: #fff;
+}
+
+.secondaryAction {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-2px);
+}
+
+.heroMeta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.metaCard,
+.snapshot {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.metaCard span,
+.snapshot span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metaCard strong,
+.snapshot strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.spotlight {
+  display: grid;
+  align-content: flex-end;
+}
+
+.spotlightCard {
+  border-radius: 28px;
+  padding: 1.4rem;
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(17, 23, 22, 0.04), rgba(17, 23, 22, 0.08)),
+    linear-gradient(155deg, rgba(14, 76, 71, 0.22), rgba(255, 255, 255, 0.52));
+  border: 1px solid rgba(255, 255, 255, 0.44);
+}
+
+.spotlightLabel {
+  margin: 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.spotlightCard h2 {
+  margin: 0.7rem 0 0;
+  font-size: 2rem;
+}
+
+.spotlightCard > p:last-of-type {
+  margin: 0.7rem 0 0;
+  color: #2f3a36;
+  line-height: 1.7;
+}
+
+.spotlightMetrics {
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.spotlightMetrics div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(23, 19, 17, 0.12);
+}
+
+.spotlightMetrics dt,
+.sectionHeading p,
+.companyCard p,
+.handle {
+  color: var(--muted);
+}
+
+.spotlightMetrics dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.directory,
+.submission {
+  padding: 28px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeading h2,
+.detailIntro h2 {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 0.95;
+}
+
+.sectionHeading p {
+  margin: 0;
+  max-width: 34rem;
+  line-height: 1.65;
+}
+
+.companyGrid,
+.companyDetails {
+  display: grid;
+  gap: 1rem;
+}
+
+.companyGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.companyCard {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 1.25rem;
+  background: var(--panel-strong);
+}
+
+.companyHeader,
+.detailIntro,
+.links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.companyHeader {
+  align-items: flex-start;
+}
+
+.companyHeader h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.handle {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+}
+
+.status {
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.companyCard p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.companyMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.companyMetrics div {
+  border-radius: 20px;
+  padding: 0.85rem 0.95rem;
+  background: #f8f1e8;
+}
+
+.companyMetrics span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: capitalize;
+}
+
+.companyMetrics strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.links {
+  flex-wrap: wrap;
+}
+
+.links a {
+  width: fit-content;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.1rem;
+}
+
+.detailCard {
+  display: grid;
+  gap: 1.25rem;
+  padding: 28px;
+}
+
+.detailIntro {
+  align-items: flex-start;
+}
+
+.highlights {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.highlights li {
+  line-height: 1.6;
+}
+
+.sourceNote {
+  font-size: 0.92rem;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .companyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeading,
+  .detailIntro,
+  .companyHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .companyMetrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 14px;
+  }
+
+  .hero,
+  .directory,
+  .submission,
+  .detailCard {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .heroMeta,
+  .companyMetrics {
+    grid-template-columns: 1fr;
+  }
+}
