@@ -112,5 +112,44 @@ export const companies = [
         "Values are taken from the visible labels in the screenshot. Early zero values reflect the chart as shown, not necessarily literal historical zeros."
     },
     sourceNote: "User-supplied screenshot, dated March 10, 2026"
+  },
+  {
+    slug: "feltsense",
+    name: "Feltsense",
+    handle: "feltsense.com",
+    website: "https://feltsense.com/",
+    xUrl: null,
+    tagline:
+      "AI agents as fully autonomous founders.",
+    status: "Live",
+    snapshotDate: "2026-03-20",
+    summary:
+      "Added from the public Feltsense homepage snapshot on March 20, 2026. This entry currently uses company-level positioning and funding information visible on the site.",
+    metrics: {
+      seedClosed: "$5.1M",
+      status: "Beta",
+      hiring: "Yes"
+    },
+    highlights: [
+      "Homepage states $5.1M seed closed.",
+      "Describes the product direction as AI agents acting as fully autonomous founders.",
+      "The site invites users to join beta and indicates the team is hiring."
+    ],
+    chart: {
+      type: "bars",
+      title: "Public company snapshot",
+      subtitle: "Official homepage information captured on March 20, 2026",
+      items: [
+        {
+          label: "Seed closed",
+          value: 5100000,
+          displayValue: "$5.1M",
+          change: "Homepage callout"
+        }
+      ],
+      note:
+        "Feltsense currently exposes positioning and funding on the homepage, but not the same operating metrics shown by Polsia or Nano Corp."
+    },
+    sourceNote: "Official Feltsense homepage, viewed March 20, 2026"
   }
 ];

@@ -4,6 +4,9 @@ import { companies } from "@/data/companies";
 import styles from "./page.module.css";
 
 const featuredCompany = companies[0];
+const latestSnapshot = [...companies]
+  .map((company) => company.snapshotDate)
+  .sort((left, right) => right.localeCompare(left))[0];
 
 function formatSnapshotDate(value) {
   return new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", {
@@ -47,7 +50,7 @@ export default function HomePage() {
               </div>
               <div className={styles.metaCard}>
                 <span>Latest snapshot</span>
-                <strong>March 17</strong>
+                <strong>{formatSnapshotDate(latestSnapshot)}</strong>
               </div>
               <div className={styles.metaCard}>
                 <span>Submission route</span>
@@ -116,9 +119,11 @@ export default function HomePage() {
                   <a href={company.website} target="_blank" rel="noreferrer">
                     Visit website
                   </a>
-                  <a href={company.xUrl} target="_blank" rel="noreferrer">
-                    View X profile
-                  </a>
+                  {company.xUrl ? (
+                    <a href={company.xUrl} target="_blank" rel="noreferrer">
+                      View X profile
+                    </a>
+                  ) : null}
                 </div>
               </article>
             ))}
