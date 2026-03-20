@@ -3,14 +3,9 @@ import SubmitForm from "@/components/SubmitForm";
 import { companies } from "@/data/companies";
 import styles from "./page.module.css";
 
-const featuredCompany = companies[0];
-const latestSnapshot = [...companies]
-  .map((company) => company.snapshotDate)
-  .sort((left, right) => right.localeCompare(left))[0];
-
 function formatSnapshotDate(value) {
   return new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     day: "numeric",
     year: "numeric",
     timeZone: "UTC"
@@ -20,158 +15,168 @@ function formatSnapshotDate(value) {
 export default function HomePage() {
   return (
     <main className={styles.page}>
-      <div className={styles.shell}>
-        <section className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <div>
-              <div className={styles.eyebrow}>Autonomous company builders</div>
-              <h1 className={styles.title}>Track the companies building companies.</h1>
-            </div>
+      <div className={styles.canvas}>
+        <aside className={styles.sidebar}>
+          <div className={`${styles.sidebarCard} ${styles.blueCard}`}>
+            <span>Directory</span>
+            <strong>Autonomous AI companies</strong>
+            <p>Public leaderboard of builders, operators, and AI-native company systems.</p>
+          </div>
+          <div className={`${styles.sidebarCard} ${styles.mintCard}`}>
+            <span>Tracked</span>
+            <strong>{companies.length} companies</strong>
+            <p>Snapshot-based metrics with room for MRR, company count, and milestone growth.</p>
+          </div>
+          <div className={`${styles.sidebarCard} ${styles.pinkCard}`}>
+            <span>Submit</span>
+            <strong>Add your company</strong>
+            <p>Use the form below to send a private submission for review.</p>
+          </div>
+        </aside>
 
-            <p className={styles.intro}>
-              A clean public directory for platforms building autonomous AI companies.
-              Each profile can hold company counts, revenue snapshots, and dated charts so
-              the numbers stay legible as the category evolves.
-            </p>
-
-            <div className={styles.heroActions}>
-              <a className={styles.primaryAction} href="#directory">
-                Browse directory
-              </a>
-              <a className={styles.secondaryAction} href="#submit">
-                Submit a company
-              </a>
-            </div>
-
-            <div className={styles.heroMeta}>
-              <div className={styles.metaCard}>
-                <span>Listed now</span>
-                <strong>{companies.length}</strong>
+        <div className={styles.main}>
+          <section className={styles.board}>
+            <div className={styles.boardHeader}>
+              <div>
+                <p className={styles.eyebrow}>Leaderboard</p>
+                <h1>Autonomous company directory</h1>
               </div>
-              <div className={styles.metaCard}>
-                <span>Latest snapshot</span>
-                <strong>{formatSnapshotDate(latestSnapshot)}</strong>
-              </div>
-              <div className={styles.metaCard}>
-                <span>Submission route</span>
-                <strong>Private</strong>
+
+              <div className={styles.filters}>
+                <div className={styles.filterPill}>Primary metric</div>
+                <div className={styles.filterPill}>All snapshots</div>
               </div>
             </div>
-          </div>
 
-          <div className={styles.spotlight}>
-            <article className={styles.spotlightCard}>
-              <p className={styles.spotlightLabel}>Current featured company</p>
-              <h2>{featuredCompany.name}</h2>
-              <p>{featuredCompany.tagline}</p>
+            <div className={styles.tableWrap}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Company</th>
+                    <th>Founder</th>
+                    <th>Primary Metric</th>
+                    <th>Growth</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {companies.map((company) => (
+                    <tr key={company.slug}>
+                      <td className={styles.rankCol}>
+                        <span className={styles.rank}>{company.rank}</span>
+                      </td>
 
-              <dl className={styles.spotlightMetrics}>
-                <div>
-                  <dt>Snapshot date</dt>
-                  <dd>{formatSnapshotDate(featuredCompany.snapshotDate)}</dd>
-                </div>
-                <div>
-                  <dt>ARR</dt>
-                  <dd>{featuredCompany.metrics.arr}</dd>
-                </div>
-                <div>
-                  <dt>Active companies</dt>
-                  <dd>{featuredCompany.metrics.activeCompanies}</dd>
-                </div>
-              </dl>
-            </article>
-          </div>
-        </section>
+                      <td>
+                        <div className={styles.companyCell}>
+                          <div
+                            className={styles.companyAvatar}
+                            style={{ background: company.companyColor }}
+                          >
+                            {company.companyInitials}
+                          </div>
 
-        <section className={styles.directory} id="directory">
-          <div className={styles.sectionHeading}>
-            <h2>Directory</h2>
-            <p>
-              These are the two companies currently in the directory. Their numbers are
-              shown as dated public snapshots, not live telemetry, so new data can be
-              layered in cleanly as you gather it.
-            </p>
-          </div>
+                          <div className={styles.companyMeta}>
+                            <div className={styles.companyTitleRow}>
+                              <a href={company.website} target="_blank" rel="noreferrer">
+                                {company.name}
+                              </a>
+                              <span className={styles.status}>{company.status}</span>
+                            </div>
+                            <p>{company.tagline}</p>
+                            <span>
+                              {company.handle} · Snapshot {formatSnapshotDate(company.snapshotDate)}
+                            </span>
+                          </div>
+                        </div>
+                      </td>
 
-          <div className={styles.companyGrid}>
-            {companies.map((company) => (
-              <article className={styles.companyCard} key={company.slug}>
-                <div className={styles.companyHeader}>
-                  <div>
-                    <h3>{company.name}</h3>
-                    <p className={styles.handle}>{company.handle}</p>
-                  </div>
-                  <span className={styles.status}>{company.status}</span>
-                </div>
+                      <td>
+                        <div className={styles.founderCell}>
+                          <div className={styles.founderAvatar}>{company.founderInitials}</div>
+                          <span>{company.founder}</span>
+                        </div>
+                      </td>
 
-                <p>{company.summary}</p>
+                      <td className={styles.metricCol}>
+                        <strong>{company.primaryMetricValue}</strong>
+                        <span>{company.primaryMetricLabel}</span>
+                      </td>
 
-                <div className={styles.companyMetrics}>
-                  {Object.entries(company.metrics).map(([label, value]) => (
-                    <div key={label}>
-                      <span>{label.replace(/([A-Z])/g, " $1").trim()}</span>
-                      <strong>{value}</strong>
-                    </div>
+                      <td className={styles.growthCol}>
+                        <span
+                          className={
+                            company.growthDirection === "up"
+                              ? styles.growthUp
+                              : company.growthDirection === "down"
+                                ? styles.growthDown
+                                : styles.growthFlat
+                          }
+                        >
+                          {company.growthDirection === "up"
+                            ? "↑ "
+                            : company.growthDirection === "down"
+                              ? "↓ "
+                              : ""}
+                          {company.growthValue}
+                        </span>
+                        <small>{company.growthLabel}</small>
+                      </td>
+                    </tr>
                   ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className={styles.snapshots}>
+            {companies.map((company) => (
+              <article className={styles.snapshotCard} key={company.slug}>
+                <div className={styles.snapshotHeader}>
+                  <div>
+                    <p className={styles.snapshotLabel}>Snapshot</p>
+                    <h2>{company.name}</h2>
+                  </div>
+                  <div className={styles.snapshotDate}>{formatSnapshotDate(company.snapshotDate)}</div>
                 </div>
 
-                <div className={styles.links}>
-                  <a href={company.website} target="_blank" rel="noreferrer">
-                    Visit website
-                  </a>
-                  {company.xUrl ? (
-                    <a href={company.xUrl} target="_blank" rel="noreferrer">
-                      View X profile
+                <p className={styles.snapshotSummary}>{company.summary}</p>
+
+                <ul className={styles.highlightList}>
+                  {company.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+
+                <CompanyChart chart={company.chart} />
+
+                <div className={styles.snapshotFooter}>
+                  <span>{company.sourceNote}</span>
+                  <div className={styles.snapshotLinks}>
+                    <a href={company.website} target="_blank" rel="noreferrer">
+                      Website
                     </a>
-                  ) : null}
+                    {company.xUrl ? (
+                      <a href={company.xUrl} target="_blank" rel="noreferrer">
+                        X
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </article>
             ))}
-          </div>
-        </section>
+          </section>
 
-        <section className={styles.companyDetails}>
-          {companies.map((company) => (
-            <article className={styles.detailCard} key={company.slug}>
-              <div className={styles.detailIntro}>
-                <div>
-                  <p className={styles.detailEyebrow}>Profile</p>
-                  <h2>{company.name}</h2>
-                </div>
-
-                <div className={styles.snapshot}>
-                  <span>Snapshot date</span>
-                  <strong>{formatSnapshotDate(company.snapshotDate)}</strong>
-                </div>
+          <section className={styles.submission} id="submit">
+            <div className={styles.submissionHeader}>
+              <div>
+                <p className={styles.eyebrow}>Submit</p>
+                <h2>Add a company</h2>
               </div>
-
-              <p className={styles.detailSummary}>{company.tagline}</p>
-
-              <ul className={styles.highlights}>
-                {company.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-
-              <CompanyChart chart={company.chart} />
-
-              <p className={styles.sourceNote}>{company.sourceNote}</p>
-            </article>
-          ))}
-        </section>
-
-        <section className={styles.submission} id="submit">
-          <div className={styles.sectionHeading}>
-            <h2>Submit a company</h2>
-            <p>
-              Add another autonomous company builder here. The form still sends privately
-              through the server route, so your receiving email address stays out of the
-              page source.
-            </p>
-          </div>
-
-          <SubmitForm />
-        </section>
+              <p>Submit another autonomous company builder. Delivery still happens privately through the server.</p>
+            </div>
+            <SubmitForm />
+          </section>
+        </div>
       </div>
     </main>
   );

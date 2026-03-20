@@ -1,29 +1,31 @@
 export const companies = [
   {
     slug: "polsia",
+    rank: 1,
     name: "polsia.ai",
     handle: "@polsia",
     website: "https://polsia.ai",
     xUrl: "https://x.com/polsia",
-    tagline:
-      "AI that runs your company while you sleep.",
+    founder: "Malik Ashraf",
+    founderInitials: "MA",
+    companyInitials: "P",
+    companyColor: "linear-gradient(135deg, #5b6cff, #7d54ff)",
+    tagline: "AI that runs your company while you sleep.",
     status: "Live",
     snapshotDate: "2026-03-17",
+    primaryMetricLabel: "MRR",
+    primaryMetricValue: "$371,767",
+    growthLabel: "WoW",
+    growthValue: "+30%",
+    growthDirection: "up",
     summary:
-      "Current directory entry seeded from your March 17 snapshot. The structure is ready for richer public metrics as you collect more verified updates.",
+      "Derived from the March 17, 2026 snapshot using the reported $4.46M ARR.",
     metrics: {
       arr: "$4,461,211",
       activeCompanies: "3,774",
       humanMessages: "373,077",
       tasksCompleted: "147,644",
       emailsSent: "107,500"
-    },
-    changes: {
-      arr: "+30% WoW",
-      activeCompanies: "+39% WoW",
-      humanMessages: "+52% WoW",
-      tasksCompleted: "+58% WoW",
-      emailsSent: "+43% WoW"
     },
     highlights: [
       "Annual run rate reported at $4.46M on March 17, 2026.",
@@ -62,22 +64,79 @@ export const companies = [
         }
       ],
       note:
-        "Metrics use different units, so the chart is intended as a public status board rather than a like-for-like business comparison."
+        "MRR on the leaderboard is estimated from ARR divided by 12. The full snapshot below preserves the original public figures."
     },
     sourceNote: "User-supplied screenshot, dated March 17, 2026"
   },
   {
+    slug: "feltsense",
+    rank: 2,
+    name: "Feltsense",
+    handle: "feltsense.com",
+    website: "https://feltsense.com/",
+    xUrl: null,
+    founder: "Team undisclosed",
+    founderInitials: "FS",
+    companyInitials: "F",
+    companyColor: "linear-gradient(135deg, #1fb981, #1f7f68)",
+    tagline: "AI agents as fully autonomous founders.",
+    status: "Beta",
+    snapshotDate: "2026-03-20",
+    primaryMetricLabel: "Seed",
+    primaryMetricValue: "$5.1M",
+    growthLabel: "Status",
+    growthValue: "Beta",
+    growthDirection: "flat",
+    summary:
+      "Added from the public Feltsense homepage snapshot on March 20, 2026.",
+    metrics: {
+      seedClosed: "$5.1M",
+      status: "Beta",
+      hiring: "Yes"
+    },
+    highlights: [
+      "Homepage states $5.1M seed closed.",
+      "Describes the product direction as AI agents acting as fully autonomous founders.",
+      "The site invites users to join beta and indicates the team is hiring."
+    ],
+    chart: {
+      type: "bars",
+      title: "Public company snapshot",
+      subtitle: "Official homepage information captured on March 20, 2026",
+      items: [
+        {
+          label: "Seed closed",
+          value: 5100000,
+          displayValue: "$5.1M",
+          change: "Homepage callout"
+        }
+      ],
+      note:
+        "Feltsense currently exposes positioning and funding on the homepage, but not operating revenue or company-count metrics."
+    },
+    sourceNote: "Official Feltsense homepage, viewed March 20, 2026"
+  },
+  {
     slug: "nanocorp",
+    rank: 3,
     name: "Nano Corp",
     handle: "@NanoCorpHQ",
     website: "https://nanocorp.so",
     xUrl: "https://x.com/NanoCorpHQ",
-    tagline:
-      "Autonomous companies run by AI making money while you sleep.",
+    founder: "Nano Corp",
+    founderInitials: "NC",
+    companyInitials: "N",
+    companyColor: "linear-gradient(135deg, #22252b, #696f7d)",
+    tagline: "Autonomous companies run by AI making money while you sleep.",
     status: "Live",
     snapshotDate: "2026-03-10",
+    primaryMetricLabel: "Companies built",
+    primaryMetricValue: "1,028",
+    growthLabel: "Milestone",
+    growthValue: "+2.8%",
+    growthDirection: "up",
     summary:
-      "This entry uses the March 10 screenshot you provided for total companies created. It is marked as a dated snapshot, not a live feed.",
+      "This entry uses the March 10 screenshot you provided for total companies created.",
     metrics: {
       companiesCreated: "1,028",
       neonLimit: "1,000",
@@ -109,47 +168,8 @@ export const companies = [
         value: 1000
       },
       note:
-        "Values are taken from the visible labels in the screenshot. Early zero values reflect the chart as shown, not necessarily literal historical zeros."
+        "Growth value on the leaderboard reflects the margin above the visible 1,000 threshold in the screenshot."
     },
     sourceNote: "User-supplied screenshot, dated March 10, 2026"
-  },
-  {
-    slug: "feltsense",
-    name: "Feltsense",
-    handle: "feltsense.com",
-    website: "https://feltsense.com/",
-    xUrl: null,
-    tagline:
-      "AI agents as fully autonomous founders.",
-    status: "Live",
-    snapshotDate: "2026-03-20",
-    summary:
-      "Added from the public Feltsense homepage snapshot on March 20, 2026. This entry currently uses company-level positioning and funding information visible on the site.",
-    metrics: {
-      seedClosed: "$5.1M",
-      status: "Beta",
-      hiring: "Yes"
-    },
-    highlights: [
-      "Homepage states $5.1M seed closed.",
-      "Describes the product direction as AI agents acting as fully autonomous founders.",
-      "The site invites users to join beta and indicates the team is hiring."
-    ],
-    chart: {
-      type: "bars",
-      title: "Public company snapshot",
-      subtitle: "Official homepage information captured on March 20, 2026",
-      items: [
-        {
-          label: "Seed closed",
-          value: 5100000,
-          displayValue: "$5.1M",
-          change: "Homepage callout"
-        }
-      ],
-      note:
-        "Feltsense currently exposes positioning and funding on the homepage, but not the same operating metrics shown by Polsia or Nano Corp."
-    },
-    sourceNote: "Official Feltsense homepage, viewed March 20, 2026"
   }
 ];
